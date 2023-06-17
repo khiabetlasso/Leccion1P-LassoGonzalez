@@ -1,0 +1,23 @@
+.mat-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Opcional: ajusta la altura según tus necesidades */
+  }
+  
+  .mat-card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  img {
+    float : left;
+    width: 110px;
+    padding-left:  auto;
+    padding-right: auto;
+    margin-left:   auto;
+    margin-right:  60;
+    display :block;
+    border: 2px solid rgb(7, 0, 0);
+  }

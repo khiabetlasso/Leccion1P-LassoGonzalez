@@ -1,0 +1,98 @@
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-6 d-flex flex-column align-items-center justify-content-center">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="pt-4 pb-1">
+              <h2>Ingresar datos</h2>
+            </div>
+            <form [formGroup]="form" class="row g-4 needs-validation" (ngSubmit)="agregarPersona()">
+              <div class="col-md-12">
+                <label for="validationCustom01" class="form-label">N de cedula</label>
+                <input type="text" class="form-control" formControlName="ci" placeholder="cedula" required />
+                <div class="valid-feedback"></div>
+              </div>
+              <div class="col-md-4">
+                <label for="validationCustom02" class="form-label">Nombre</label>
+                <input type="text" class="form-control" formControlName="firstname" placeholder="Nombre" required />
+                <div class="valid-feedback"></div>
+              </div>
+              <div class="col-md-4">
+                <label for="validationCustom02" class="form-label">Apellido</label>
+                <input type="text" class="form-control" formControlName="lastname" placeholder="Apellido" required />
+                <div class="valid-feedback"></div>
+              </div>
+              <div class="col-md-4">
+                <label for="validationCustomUsername" class="form-label">Edad</label>
+                <div class="input-group has-validation">
+                  <input type="date" class="form-control" formControlName="birthday" required />
+                </div>
+              </div>
+              <div class="row mt-4">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-5">
+                  <button class="btn btn-primary" type="submit">
+                    <i class="bi bi-person-add"></i> Agregar nuevo
+                  </button>
+                </div>
+                <div class="col-sm-5"></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <h1>Tabla v1</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Cod</th>
+          <th scope="col">Cedula</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Fecha </th>
+          <th scope="col">Ax</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let persona of listPersona; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <th>{{ persona.ci }}</th>
+          <th>{{ persona.firstname }}</th>
+          <th>{{ persona.lastname }}</th>
+          <th>{{ persona.birthday | date : "dd/MM/yyyy" }}</th>
+          <div class="d-flex gap-2">
+            <th>
+              <a class="btn btn-danger action" (click)="eliminarEstudiante(i, persona)">
+                <i class="bi bi-trash-fill"></i> Eliminar
+              </a>
+              <a class="btn btn-warning action"><i class="bi bi-pencil-fill"></i> Editar</a>
+            </th>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h1>Tabla v2 Eliminado</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Cod</th>
+          <th scope="col">Cedula</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Fecha </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let persona of listEliminados; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <th>{{ persona.ci }}</th>
+          <th>{{ persona.firstname }}</th>
+          <th>{{ persona.lastname }}</th>
+          <th>{{ persona.birthday | date : "dd/MM/yyyy" }}</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
